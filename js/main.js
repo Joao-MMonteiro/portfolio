@@ -138,6 +138,21 @@ function applyLanguage(language) {
   try { localStorage.setItem("portfolio-language", language); } catch (_) {}
 }
 
+// Inicializa o idioma salvo e conecta o botão PT / EN.
+const languageToggle = document.querySelector("[data-language-toggle]");
+let savedLanguage = "pt-BR";
+try {
+  savedLanguage = localStorage.getItem("portfolio-language") || "pt-BR";
+} catch (_) {}
+applyLanguage(savedLanguage === "en" ? "en" : "pt-BR");
+
+if (languageToggle) {
+  languageToggle.addEventListener("click", () => {
+    const nextLanguage = document.documentElement.lang === "en" ? "pt-BR" : "en";
+    applyLanguage(nextLanguage);
+  });
+}
+
 const revealItems = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   const observer = new IntersectionObserver((entries, currentObserver) => {
