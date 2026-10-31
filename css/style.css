@@ -194,3 +194,16 @@ button { font: inherit; }
 /* Contact block keeps the actions aligned to the right after removing the headline. */
 .contact-content .contact-actions { margin-left:auto; }
 @media(max-width:760px) { .contact-content .contact-actions { margin-left:0; } }
+
+
+/* Language switch */
+.language-toggle {
+  display: inline-flex; align-items: center; gap: 7px; margin-left: 8px; padding: 8px 10px;
+  border: 1px solid var(--line, #deded9); border-radius: 999px; background: transparent;
+  color: inherit; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: .04em; cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.language-toggle:hover { background: #efefeb; border-color: #bdbdb6; }
+.language-toggle .language-current { color: inherit; }
+.language-toggle .language-divider { opacity: .45; }
+@media (max-width: 760px) { .language-toggle { margin: 12px 0 0; align-self: flex-start; } }
